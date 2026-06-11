@@ -1,3 +1,17 @@
+"""
+    Exchange rate: 1 USD = 84.5000 INR $100.00 USD in all currencies:  
+    INR:  ₹84.50  
+    EUR:  €87.00    
+    GBP:  £75.00   
+    JPY:  ¥15,400.00    
+    AED:  د.إ367.00    
+    CAD:  CA$136.00
+
+    Eg: INR -> GBP
+    Step 1: ₹5000 ÷ 84.50  = $59.17 (in USD)  
+    Step 2: $59.17 × 0.75  = £44.38 (in GBP)
+"""
+
 currencies = {
     "USD" : 1,
     "INR" : 84.50,
