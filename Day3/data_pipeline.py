@@ -1,3 +1,12 @@
+# You are given a list of product dictionaries from an e-commerce platform. 
+# Use lambda functions with 
+#     map() 
+#     filter()
+#     sorted() 
+# to build a data processing pipeline. 
+# No for loops allowed for the transformations. 
+# Apply discounts, filter by rating, sort by price, and format output. 
+
 products = [ 
   {"name": "iPhone 15", "price": 79999, "category": "Electronics", "rating": 4.5}, 
   {"name": "Nike Shoes", "price": 8999, "category": "Fashion", "rating": 4.2}, 
@@ -8,6 +17,7 @@ products = [
 ] 
 
 # Task 1: Apply 10% discount to all Electronics 
+
 discounted = list(
     map(
         lambda p: {
@@ -17,24 +27,23 @@ discounted = list(
         products
     )
 )
-#print(discounted)
-print("\n")
+
 # Task 2: Filter products with rating >= 4.2 
+
 rating_filter = list(
     filter(
         lambda p: p["rating"] >= 4.2, 
         discounted
     )
 )
-#print(rating_filter)
 
 # Task 3: Sort by price (low to high) 
+
 sorted_list = list(
     sorted(
         rating_filter, key=lambda p: p["price"]
     )
 )
-#print(sorted_list)
 
 # Task 4: Format as "Name — Rs.Price (Rating stars)" 
 

@@ -39,7 +39,6 @@ def read_logs(level_filter = None):
     if not os.path.exists(log_file):
         return []
 
-
     with open(log_file, "r") as file:
         lines = file.readlines()
         all_logs = []
