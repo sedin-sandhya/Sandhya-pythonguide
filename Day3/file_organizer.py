@@ -34,6 +34,7 @@ def get_category(extension):
         if extension in extensions:
             return category
     return "Others"
+
 def organise_folder(folder_path: str) -> dict: 
 
     # scans folder, moves files, returns summary dict 

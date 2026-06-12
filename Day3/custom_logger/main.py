@@ -10,5 +10,5 @@ logger.debug("Retrying connection...")
 
 
 print("\nERROR LOGS:")
-logs = logger.read_logs()
+logs = logger.read_logs(level_filter="ERROR")
 print(logs)
