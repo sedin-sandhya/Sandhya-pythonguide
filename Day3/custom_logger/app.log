@@ -1,8 +1,0 @@
-[2026-06-11 23:19:17.721239] [INFO   ] App started
-[2026-06-11 23:19:17.742199] [WARNING] Low disk space: 2GB remaining
-[2026-06-11 23:19:17.781429] [ERROR  ] Database connection failed
-[2026-06-11 23:19:17.788696] [DEBUG  ] Retrying connection...
-[2026-06-12 12:12:30.252960] [INFO   ] App started
-[2026-06-12 12:12:30.260993] [WARNING] Low disk space: 2GB remaining
-[2026-06-12 12:12:30.276089] [ERROR  ] Database connection failed
-[2026-06-12 12:12:30.286224] [DEBUG  ] Retrying connection...
