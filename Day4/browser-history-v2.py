@@ -6,35 +6,75 @@
 # A deque queue keeps the full chronological history log 
 
 from collections import deque
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack:
+
+    def __init__(self):
+        self.top = None
+
+    def push(self, url):
+        new_node = Node(url)
+
+        new_node.next = self.top
+
+        self.top = new_node
+
+    def pop(self):
+
+        if self.is_empty():
+            return None
+        
+        removed = self.top.data
+        self.top = self.top.next
+
+        return removed
+    
+    def is_empty(self):
+        return self.top is None
+    
+    def display(self):
+
+        temp = self.top
+        result = []
+
+        while temp:
+            result.append(temp.data)
+            temp = temp.next
+        return result
+
 class Browser():
 
     def __init__(self):
 
-        self.back_stack = []
-        self.forward_stack = []
+        self.back_stack = Stack()
+        self.forward_stack = Stack()
         self.history_log = deque()
         self.current = None
 
     def visit(self, url):
 
         if self.current:
-            self.back_stack.append(self.current)
+            self.back_stack.push(self.current)
 
         self.current = url
 
-        self.forward_stack.clear()
+        self.forward_stack = Stack()
         self.history_log.append(url)
 
-        print(self.back_stack)
         print(f"Visited: {url}")
 
     def back(self):
 
-        if not self.back_stack:
+        if self.back_stack.is_empty():
             print("Nothing to go back to")
             return
         
-        self.forward_stack.append(self.current)     
+        self.forward_stack.push(self.current)     
         self.current = self.back_stack.pop()
 
         print()
@@ -42,11 +82,11 @@ class Browser():
 
     def forward(self):
 
-        if not self.forward_stack:
+        if self.forward_stack.is_empty():
             print("Nothing to go forward to")
             return
         
-        self.back_stack.append(self.current)
+        self.back_stack.push(self.current)
 
         self.current = self.forward_stack.pop()
 
@@ -96,4 +136,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # google.com->youtube.com->github.com->youtube.com->google.comstackoverflow.com->

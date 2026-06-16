@@ -27,7 +27,7 @@ class Ward:
             f"Admitted: {name} "
             f"(Severity {severity})"
         )
-
+        print(patient)
     def treat_next(self):
         if not self.patients:
             print("No patients waiting")
@@ -50,7 +50,7 @@ class Ward:
         print()
         print("Waiting Patients:")
 
-        waiting = sorted(self.patients)
+        waiting = self.patients
 
 
         for i, patient in enumerate(waiting, start=1):
@@ -89,18 +89,18 @@ class Ward:
 
 def main():
     ward = Ward()
-    ward.admit("Rahul", 45, 3)
+    ward.admit("Rahul", 45, 7)
     ward.admit("Priya", 28, 1)
-    ward.admit("Arjun", 60, 7)
+    ward.admit("Arjun", 60, 3)
+    ward.admit("Sandhya", 23, 5)
     ward.admit("Meena", 35, 1)
+
 
     print()
     ward.treat_next()
     ward.treat_next()
     ward.show_waiting()
 
-
-    # Bonus test
     ward.bump_priority("Arjun")
     ward.show_waiting()
 
