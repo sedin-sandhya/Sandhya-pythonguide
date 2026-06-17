@@ -4,20 +4,19 @@ import time
 #Bubble Sort O(n^2)
 
 def bubble_sort(players):
-    arr = players.copy()
-    length = len(arr)
+    length = len(players)
 
     for i in range(length):
         swapped = False
         for j in range(0, length-i-1):
 
-            if arr[j]["score"] > arr[j+1]["score"]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+            if players[j]["score"] > players[j+1]["score"]:
+                players[j], players[j+1] = players[j+1], players[j]
                 swapped = True
         
         if not swapped:
             break
-    return arr
+    return players
 
 # Merge Sort O(n log n)
 
@@ -101,11 +100,10 @@ def compare_sorts(players):
 
     for name, algorithm in algorithms:
 
-        data = players.copy()
+        # data = players.copy()
         start = time.time()
 
-        result = algorithm(data)
-
+        result = algorithm(players)
         end = time.time()
 
         print(
