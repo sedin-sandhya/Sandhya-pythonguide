@@ -56,7 +56,6 @@ class BankAccount:
                     "+₹" + str(t["amount"]),
                     "Balance:", t["balance"]
                 )
-
             else:
                 print(
                     t["type"],
@@ -65,10 +64,9 @@ class BankAccount:
                 )
     
     def __str__(self):
-
         return (
             f"Account Holder: {self.holder_name}\n"
-            f"Balance: {self.balance}\n" 
+            f"Balance: {self.balance}" 
         )
     
 def main():
