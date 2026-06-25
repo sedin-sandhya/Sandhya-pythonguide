@@ -13,7 +13,7 @@ def apply_filter(img):
 
     result = sum(
         i*i
-        for i in range(500_000)
+        for i in range(20_000_000)
     )
 
     return f"Processed {img} checksum:{result % 9999}"
@@ -37,8 +37,9 @@ def main():
         for img in images
     ]
 
+    end = time.time()
 
-    single_time = time.time() - start
+    single_time = end - start
 
     # Multiprocessing
 
@@ -48,13 +49,16 @@ def main():
         multiprocessing.cpu_count()
     ) as pool:
 
+        print(multiprocessing.cpu_count())
+
         multi_result = pool.map(
             apply_filter,
             images
         )
 
+    end = time.time()
 
-    multi_time = time.time() - start
+    multi_time = end - start
 
     print("\nSingle Process:")
     print(single_result)
