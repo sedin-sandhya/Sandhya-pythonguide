@@ -103,7 +103,7 @@ def main():
 
             payment_method = "upi",
 
-            tip = 40
+
         )
 
         print(order)
@@ -114,8 +114,11 @@ def main():
             item.price * item.quantity
             for item in order.items
         )
-
         print(total)
+
+        if order.tip != None:
+            print("\n Tip:")
+            print(order.tip)
 
     except ValidationError as e:
 
