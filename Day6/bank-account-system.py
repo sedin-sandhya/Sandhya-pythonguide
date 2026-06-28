@@ -45,7 +45,9 @@ class BankAccount:
             self.transactions.pop(0)
 
     def mini_statement(self):
-        print("\n Mini Statement")
+        print("="*14)
+        print("Mini Statement")
+        print("="*14)
 
         for t in self.transactions:
             if t["type"] == "CR":
