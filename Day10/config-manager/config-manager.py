@@ -10,7 +10,6 @@ DEFAULTS = {
 }
 
 
-# Responsible only for JSON file operations
 class JsonFileStorage:
 
     def __init__(self, path):
@@ -30,15 +29,10 @@ class JsonFileStorage:
     def write(self, data):
 
         with open(self.path, "w") as file:
-            json.dump(
-                data,
-                file,
-                indent=2
-            )
+            json.dump(data, file, indent=2)
 
 
 
-# Responsible only for configuration management
 class ConfigManager:
 
     def __init__(self, storage):
@@ -94,12 +88,10 @@ class ConfigManager:
     def reset(self):
 
         self.config = DEFAULTS.copy()
-
         self.storage.write(self.config)
 
 
 
-# Application entry point
 def main():
 
     storage = JsonFileStorage("config.json")
@@ -108,35 +100,23 @@ def main():
 
 
     print("Current theme:", config.get("theme"))
-
-
     config.set("theme", "dark")
 
-    print("Updated theme:",
-          config.get("theme"))
-
-
+    print("Updated theme:",config.get("theme"))
     config.set("font_size", 20)
 
     print("Font size:", config.get("font_size"))
 
-
     deleted = config.delete("language")
-
     print("Language deleted:", deleted)
 
-
     print("Language:", config.get("language", "Not Found"))
-
-
     config.reset()
 
     print("\nAfter reset:")
 
     print("Theme:", config.get("theme"))
-
     print("Language:", config.get("language"))
-
     print("Font size:", config.get("font_size"))
 
 
