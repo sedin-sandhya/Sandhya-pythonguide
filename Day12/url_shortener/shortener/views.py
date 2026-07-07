@@ -8,8 +8,15 @@ from .models import ShortURL
 from .serializers import ShortURLSerializer
 from .utils import generate_short_code
 
+from django.shortcuts import render
 
 # Create your views here.
+
+
+def home(request):
+    return render(request, "index.html")
+
+
 class ShortenURLView(APIView):
     def post(self, request):
         serializer = ShortURLSerializer(data=request.data)
