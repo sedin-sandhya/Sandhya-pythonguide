@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "sandhya-pythonguide.onrender.com",
+    "sandhya-pythonguide-1.onrender.com",
 ]
 
 
