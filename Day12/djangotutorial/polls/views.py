@@ -2,11 +2,15 @@ from django.utils import timezone
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.db.models import F
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Question, Choice
 from django.views import generic
 
 # Create your views here.
+
+
+def home(request):
+    return HttpResponse("Django app is running!")
 
 
 class IndexView(generic.ListView):
