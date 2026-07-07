@@ -11,21 +11,13 @@ from .utils import generate_short_code
 
 # Create your views here.
 class ShortenURLView(APIView):
-
     def post(self, request):
-        print("=" * 50)
-        print("Content-Type:", request.content_type)
-        print("Request Data:", request.data)
-        print("Body:", request.body)
-        print("=" * 50)
-
         serializer = ShortURLSerializer(data=request.data)
 
         if serializer.is_valid():
             serializer.save(short_code=generate_short_code())
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        print(serializer.errors)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
